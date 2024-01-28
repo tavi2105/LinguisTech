@@ -40,13 +40,13 @@ def preprocess(data):
     return X_data, Y_data
 
 
-with open('MELD_train_efr.json') as f:
+with open('dataset/MELD_train_efr.json') as f:
     task3_train_data = json.load(f)
 
-with open('MELD_val_efr.json') as f:
+with open('dataset/MELD_val_efr.json') as f:
     task3_val_data = json.load(f)
 
-with open('MELD_test_efr.json') as f:
+with open('dataset/MELD_test_efr.json') as f:
     task3_test_data = json.load(f)
 
 X_train_data, Y_train = preprocess(task3_train_data)
@@ -159,6 +159,6 @@ y_prob = classifier.predict(test_features)
 print(y_prob)
 y_pred_test = y_prob.argmax(axis=-1)
 
-with open("test-results.txt", "w") as f:
+with open("output/test-results.txt", "w") as f:
     for item in y_pred_test:
         f.write(str(item+0.0) + "\n")
